@@ -26,6 +26,13 @@
           <form action="/reservations/cancel/{{this._id}}" method="POST">
             <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
           </form>
+         {{#if (eq this.bookingStatus "Confirmed")}}
+          <div class="btn-group">
+            <form action="/reservations/cancel/{{this._id}}" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
+            </form>
+            <a href="/reservations/edit/{{this._id}}" class="btn btn-sm btn-warning">Edit Packages</a>
+          </div>
           {{/if}}
         </div>
       </div>
