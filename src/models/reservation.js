@@ -18,17 +18,36 @@ const reservationSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  // Enhanced optional packages
   mealOption: {
-    type: String,
-    default: 'None'
+    name: {
+      type: String,
+      default: 'None'
+    },
+    price: {
+      type: Number,
+      default: 0
+    }
   },
-  extraBaggage: {
-    type: Number,
-    default: 0
+  baggage: {
+    quantity: {
+      type: Number,
+      default: 0
+    },
+    price: {
+      type: Number,
+      default: 0
+    }
   },
-  selectedSeat: {
-    type: String,
-    required: true
+  seat: {
+    number: {
+      type: String,
+      required: true
+    },
+    price: {
+      type: Number,
+      default: 0
+    }
   },
   totalCost: {
     type: Number,
@@ -38,6 +57,10 @@ const reservationSchema = new mongoose.Schema({
     type: String,
     enum: ['Confirmed', 'Cancelled'],
     default: 'Confirmed'
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 });
 
